@@ -1,24 +1,28 @@
-import { Form, Input } from 'antd';
-import React from 'react';
+import { Card, Form, Input } from 'antd';
+import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
+import { Navigate } from 'react-router-dom';
 import '../style/EnterPhone.css'
 
-export default function EnterPhone({ getFieldDecorator }) {
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    this.props.form.validateFields((err, values) => {
-      if (!err) {
-        console.log('Received values of form: ', values);
-      }
-    });
+export default function EnterPhone({ }) {
+  const [phone, setPhone] = useState('')
+  const [redirect, setRedirect] = useState(false)
+
+  const handleChange = () => {
+    const value = document.getElementsByClassName('mobile-input')[0].value
+    setPhone(value)
+  }
+
+  const handleSubmit = () => {
+    setRedirect(true)
   };
 
   return (
-    <div className='small-container'>
+    redirect ? <Navigate to='/home' /> :
+    <Card className='small-box'>
         <img className='logo' src={process.env.PUBLIC_URL + '/logo.png'} />
-        .<textarea cols="30" rows="10"></textarea>
         <h2 className='section-title'>ورود | ثبت نام</h2>
-        <p>
+        <p className='description'>
             لطفا شماره موبایل خود را وارد کنید
         </p>
         <Form onSubmit={handleSubmit} className="login-form">
@@ -26,7 +30,10 @@ export default function EnterPhone({ getFieldDecorator }) {
                 <Input className="area-code" defaultValue="+98" disabled />
             </Form.Item>
             <Form.Item>
-                <Input className="mobile-input" minLength={10} maxLength={10} />
+                <Input className="mobile-input" onChange={handleChange} minLength={10} maxLength={10} />
+            </Form.Item>
+            <Form.Item>
+              <button type="submit" className='submit' onClick={handleSubmit}>ورود</button>
             </Form.Item>
             {/* <Form.Item>
                 <Input
@@ -53,6 +60,6 @@ export default function EnterPhone({ getFieldDecorator }) {
                 Or <a href="">register now!</a>
             </Form.Item> */}
         </Form>
-    </div>
+      </Card>
   );
 }

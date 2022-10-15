@@ -1,10 +1,25 @@
+.small-box {
+  width: 450px;
+  /* height: 550px; */
+  position: absolute !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important; 
+  border: 1px solid 	#cadeef;
+  padding: 25px 40px;
+  border-radius: 10px;
+  margin: auto;
+  /* background-color: black; */
+}
+
 .area-code {
     width: 50px !important;
     border-radius: 50px !important;
     height: 50px;
-    background-color: 	#9bd4e4 !important;
+    background-color: 	#79DAE8 !important;
     border: none !important;
     color: 	#fff !important;
+    font-weight: 900;
 }
 
 form {
@@ -20,4 +35,28 @@ form div {
     border-radius: 50px !important;
     height: 50px;  
     text-align: center;
+}
+
+.submit {
+    width: 300px;
+    background-color: #79DAE8;
+    border: none;
+    color: white;
+    line-height: 45px;
+    border-radius: 10px;
+    cursor: pointer;
+    outline: none;
+    font-weight: 900;
+    font-size: 20px;
+}
+
+.section-title {
+    padding-right: 50px;
+    padding-bottom: 15px;
+}
+
+.description {
+    text-align: right;
+    padding-right: 50px;
+    padding-bottom: 10px;
 }
