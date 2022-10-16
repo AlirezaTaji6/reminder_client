@@ -1,7 +1,7 @@
 /* colors: E8F9FD, 79DAE8, 0AA1DD, 2155CD */
 body {
   margin: 0;
-  font-family: Vazirmatn, sans-serif;
+  font-family: Vazirmatn, sans-serif !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   /* width: 100%;
@@ -54,5 +54,5 @@ code {
   width: 100px;
   height: 100px;
   border-radius: 100px;
-
+  margin: auto !important;
 }

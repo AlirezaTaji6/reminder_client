@@ -3,22 +3,29 @@ import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import { Navigate } from 'react-router-dom';
 import '../style/EnterPhone.css'
+import { useDispatch } from 'react-redux';
+import { addPhone } from '../loginSlice'
 
 export default function EnterPhone({ }) {
   const [phone, setPhone] = useState('')
   const [redirect, setRedirect] = useState(false)
+  const dispatch = useDispatch();
 
   const handleChange = () => {
     const value = document.getElementsByClassName('mobile-input')[0].value
     setPhone(value)
+
   }
 
-  const handleSubmit = () => {
+  const handleSubmit = ()  => {
+    const result = await
+    dispatch(addPhone(phone))
+
     setRedirect(true)
   };
 
   return (
-    redirect ? <Navigate to='/home' /> :
+    redirect ? <Navigate to={`/login/verify`} /> :
     <Card className='small-box'>
         <img className='logo' src={process.env.PUBLIC_URL + '/logo.png'} />
         <h2 className='section-title'>ورود | ثبت نام</h2>

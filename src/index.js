@@ -5,14 +5,24 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import './index.css';
 import 'antd/dist/antd.css';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import EnterPhone from './login/components/EnterPhone';
+import VerfiyPhone from './login/components/VerifyPhone';
+import store from './store';
+import { Provider } from 'react-redux';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <BrowserRouter>
-    <App />
-  </BrowserRouter>
+  <Provider store={store}>
+    <BrowserRouter>
+      <Routes>
+        <Route path='/login' element={<EnterPhone/>} />
+        <Route path='/login/verify' element={<VerfiyPhone/>} />
+        
+      </Routes>
+    </BrowserRouter>
+  </Provider>
 );
 
 // If you want to start measuring performance in your app, pass a function
